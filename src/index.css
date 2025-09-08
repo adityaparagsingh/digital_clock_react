@@ -1,0 +1,31 @@
+body{
+    background-image: url(https://t4.ftcdn.net/jpg/06/63/99/45/360_F_663994561_qy30RA6KgMrrHIWTK6y7V2RRKQxwQInj.jpg);
+    margin: 0;
+    padding: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.clockContainer{
+    margin: 10px;
+    /* for glassmorph effect use this */
+    backdrop-filter: blur(15px);
+    border-radius: 40px;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 20px;
+}
+
+.clock{
+    /* color:rgb(255, 0, 0); */
+    font-size: 4rem;
+    font-family: monospace;
+    text-shadow: 3px 3px 5px rgba(255, 0, 0, 0.646);
+    text-align: center;
+    
+}

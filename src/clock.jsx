@@ -1,0 +1,46 @@
+import { useState, useEffect } from "react";
+
+
+function Clock(){
+
+    const [time, setTime] = useState(new Date());
+
+    useEffect(()=>{
+        const intervalId = setInterval(()=>{
+            setTime(new Date());
+        },1000); //1000 miliseconds = 1sec
+
+        //unmouting the clock ,, so it does not misbehave later after function run
+        return()=>{
+            clearInterval(intervalId);
+            //freeing up resources
+        }
+    },[]);
+
+    function formatTime(){
+        let hours = time.getHours();
+        let minutes = time.getMinutes();
+        let seconds = time.getSeconds();
+        const meridiem = hours >= 12 ? "PM" : "AM";
+
+        hours = hours%12 || 12; //converts military time to normal format
+        // hours % 12 = 0 this will return false ,,, therefore 12 will be taken (true)(any number other then 0 is true)
+
+        return `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)} ${meridiem}`;
+    }
+
+    function padZero(number){
+        return (number < 10 ? "0" : "")+number;
+    }
+
+
+  return(
+    <div className="clockContainer">
+        <div className="clock">
+            <span>{formatTime()}</span>
+        </div>
+    </div>
+  )
+}
+
+export default Clock 
